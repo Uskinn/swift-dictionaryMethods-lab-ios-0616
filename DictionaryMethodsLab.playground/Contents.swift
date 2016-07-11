@@ -13,7 +13,7 @@
  */
 // write your code here
 
-
+var starWarsHeroes = ["Luke Skywalker", "Princess Leia", "Han Solo", "Rey"]
 
 
 /*: question2
@@ -21,7 +21,7 @@
  */
 // write your code here
 
-
+var starWarsVillins = ["Darth Vader", "Emperor Palpatine"]
 
 
 /*: question3
@@ -29,14 +29,14 @@
  */
 // write your code here
 
-
+var starWarsDroids = ["R2-D2", "C-3PO", "IG-88", "BB-8"]
 
 
 /*: question4
  ### 4. Darn! We forgot to add Kylo Ren, the newest _Star Wars_ villain. Add "Kylo Ren" to `starWarsVillains` using the `append()` method.
  */
 // write your code here
-
+starWarsVillins.append("Kylo Ren")
 
 
 
@@ -45,13 +45,16 @@
  */
 // write your code here
 
-
+starWarsDroids.removeAtIndex(2)
 
 
 /*: question6
  ### 6. Excellent! We want to store these arrays in a dictionary. Create a _variable_ dictionary called `starWarsCharacters` with the following keys: "Heroes", "Villains", and "Droids". Assign the appropriate variables that you created in the previous questions to these keys when you initialize the dictionary.
  */
 // write your code here
+var starWarsCharacters = ["Heroes": starWarsHeroes,
+                          "Villians": starWarsVillins,
+                          "Droids": starWarsDroids]
 
 
 
@@ -61,7 +64,7 @@
  */
 // write your code here
 
-
+var starWarsGangsters = ["Watto", "Jabba", "Hutt"]
 
 
 /*: question8
@@ -69,7 +72,7 @@
  */
 // write your code here
 
-
+starWarsCharacters.updateValue(starWarsGangsters, forKey: "Gandsters")
 
 
 /*: question9
@@ -77,7 +80,9 @@
  */
 // write your code here
 
-
+for key in starWarsCharacters.keys {
+    print(key)
+}
 
 
 /*: question10
@@ -85,6 +90,8 @@
  */
 // write your code here
 
+let countKeysV = starWarsCharacters.count
+    print(countKeysV)
 
 
 
@@ -93,7 +100,11 @@
  */
 // write your code here
 
-
+if starWarsCharacters.isEmpty {
+    print("the dictionary is empty!")
+} else {
+    print("There are \(starWarsCharacters.count) items in the dictionary")
+}
 
 
 /*: question12
@@ -101,7 +112,7 @@
  */
 // write your code here
 
-
+var starWarsJedi = ["Yoda", "Obi-Wan Kenobi", "Mace Windu"]
 
 
 /*: question13
@@ -109,15 +120,27 @@
  */
 // write your code here
 
+starWarsCharacters.updateValue(starWarsJedi, forKey: "Jedi")
 
-
+if let newInfo = starWarsCharacters["Jedi"] {
+    print("Added Jedi key!")
+} else  {
+    print("Updated Jedi key")
+}
+starWarsCharacters
 
 /*: question14
  ### 14. I can't remember if we added the a key/value pair for "Bounty Hunters" or not. Regardless, let's not worry about them for now. Use the `removeValueForKey()` method to remove "Bounty Hunters" from `starWarsCharacters`. Print the message "Removed Bounty Hunters" if the key was present in the dictionary, or "Bount Hunters did not exist" if it wasn't.
  */
 // write your code here
 
+starWarsCharacters.removeValueForKey("Bounty Hunters")
 
+if let removedItem = starWarsCharacters["Bounty Hunters"] {
+    print("Removed Bounty Hunters")
+} else {
+    print("Bount Hunters didn't exist")
+}
 
 
 /*: question15
@@ -126,26 +149,29 @@
  After you've fixed the error, print out the contents of the "Jedi" key in `starWarsCharacters` to make sure your code works.
  */
 
-/* Start by uncommenting this block of code
+
  if var jedi = starWarsCharacters["Jedi"] {
  jedi.append("Aayla Secura")
+   starWarsCharacters["Jedi"] = jedi
+    
  }
- */
 
-
-
-
+if let newJedi = starWarsCharacters["Jedi"] {
+    for (index, value) in newJedi.enumerate() {
+        print("\(index + 1). \(value)")
+    }
+}
 /*: question16
  ### 16. We want to print out the names of our _Star Wars_ heroes line-by-line. Unfortunately, the code below isn't working correctly -- nothing gets printed! Can you fix it so that our heroes are printed out? (Again, the code has been commented out so that it doesn't interfere with earlier questions until they have been completed. Start by uncommenting the code, but there's still another bug!)
  */
 
-/*
- if let heroes = starWarsCharacters["Heros"] {
- for hero in heroes {
- print(hero)
+
+ if let heroes = starWarsCharacters["Heroes"] {
+    for (index,value) in heroes.enumerate() {
+        print("\(index + 1). \(value)")
+    }
  }
- }
- */
+ 
 
 
 
